@@ -2,10 +2,10 @@ import { Item } from "../../inventory/items";
 import { DungeonType } from "../dungeonType";
 import { MonsterType } from "../../monster/monster";
 
-export const RungUMinhConfig = {
-    id: DungeonType.RungUMinh,
-    name: 'Rừng U Minh',
-    image: 'dungeon_rung_u_minh',
+export const DongPhongNhaConfig = {
+    id: DungeonType.DongPhongNha,
+    name: 'Động Phong Nha',
+    image: 'dungeon_dong_phong_nha',
     
     monsters_spawn_rate: 0.5,
     items_drop_rate: 0.5,
@@ -13,24 +13,24 @@ export const RungUMinhConfig = {
     monsters: [
         {
             type: MonsterType.Ho,
-            weight: 100,
+            weight: 500,
         },
         {
             type: MonsterType.Soi,
-            weight: 700,
+            weight: 400,
         },
         {
             type: MonsterType.Lon,
-            weight: 100,
+            weight: 200,
         },
         {
             type: MonsterType.Tho,
-            weight: 100,
+            weight: 600,
         },
     ],
     items: [
         {
-            type: Item.DotPha_LamDuongThach,
+            type: Item.DotPha_CoMocNgungSuong,
             weight: 500,
 
             minQuantity: 1,

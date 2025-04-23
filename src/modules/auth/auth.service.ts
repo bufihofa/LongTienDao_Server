@@ -8,6 +8,7 @@ import { User } from '../users/user.entity';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { RegisterDto } from './dto/register.dto';
+import { LoginDto } from './dto/login.dto';
 @Injectable()
 export class AuthService {
     constructor(
@@ -18,25 +19,30 @@ export class AuthService {
         
         
     ) {}
-    /*
-    async validateUser(username: string, pass: string) {
+    
+    
+    
+    async login(loginDto: LoginDto) {
+        const { username, password } = loginDto;
+
+        const user = await this.userRepository.findOne({ where: { username } });
         if (!user) throw new UnauthorizedException('User not found');
-        const match = await bcrypt.compare(pass, user.password);
+
+        const match = await bcrypt.compare(password, user.password);
+
         if (!match) throw new UnauthorizedException('Invalid credentials');
-        const { password, ...result } = user;
-        return result;
-    }
-    */
-    async login(user: any) {
-        const payload = { sub: user.id, username: user.username };
+
+        const payload = { username: user.username, sub: user.id, role: user.role };
+
         return {
-        access_token: this.jwtService.sign(payload),
+            access_token: this.jwtService.sign(payload),
+            user,
         };
     }
 
     async register(registerDto: RegisterDto) {
         const { username, password, email } = registerDto;
-        
+
         const existingUser = await this.userRepository.findOne({ where: { username } });
         if (existingUser) {
             throw new UnauthorizedException('Username already exists');

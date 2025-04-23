@@ -12,10 +12,14 @@ export class User {
     @Column() 
     password: string; 
 
-    @Column()
+    @Column({nullable: true})
     email: string;
+
+    @Column({nullable: true})
+    sectName: string;
 
     @Column({ default: 'member' })
     role: string; // 'admin' | 'member' | 'guest'
     
+
 }

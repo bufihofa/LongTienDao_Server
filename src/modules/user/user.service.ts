@@ -19,9 +19,10 @@ export class UserService {
     if(!createSectDto.sectName){
       return { success: false, message: 'Sect name is required', errorCode: 2002 };
     }
-    
+
     return this.userRepository.save(user);
   }
+  
   
   
 }

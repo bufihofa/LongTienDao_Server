@@ -1,5 +1,5 @@
-// src/users/user.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Disciple } from '../disciple/disciple.entity';
 
 @Entity()
 export class User {
@@ -21,5 +21,10 @@ export class User {
     @Column({ default: 'member' })
     role: string; // 'admin' | 'member' | 'guest'
     
+    @Column({ default: 0 })
+    peoples: number; // Số lượng đệ tử ký danh
+
+    @OneToMany(() => Disciple, (disciple) => disciple.user, { cascade: true })
+    disciples: Disciple[]; // The disciples owned by this user
 
 }

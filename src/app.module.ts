@@ -29,8 +29,9 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
         },
       }),
     }),
-    UserModule,
     AuthModule,
+    UserModule,
+    
   ],
 
   controllers: [AppController],

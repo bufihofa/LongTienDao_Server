@@ -60,11 +60,17 @@ export class AuthService {
             newUser.role = 'admin';
         }
 
+        
+        
         await this.userRepository.save(newUser);
+
+        const payload = { username: newUser.username, sub: newUser.id, role: newUser.role };
 
         return {
             success: true,
             message: 'User registered successfully',
+
+            access_token: this.jwtService.sign(payload),
             user: newUser,
         }
     }

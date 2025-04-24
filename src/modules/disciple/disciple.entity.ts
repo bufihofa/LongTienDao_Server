@@ -1,10 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, Index } from 'typeorm';
 import { User } from '../user/user.entity';
 
 @Entity()
 export class Disciple {
-    @PrimaryGeneratedColumn() 
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column() 
     name: string;
@@ -12,7 +12,7 @@ export class Disciple {
     @Column()
     avatar: number; 
 
-    @Column({ type: 'json' })
+    @Column({ type: 'jsonb' })
     stats: {
         immortalBloodline: number;
         dragonBloodline: number;
@@ -34,5 +34,6 @@ export class Disciple {
     };
 
     @ManyToOne(() => User, (user) => user.disciples, { onDelete: 'CASCADE' })
+    @Index()
     user: User; // The user who owns this disciple
 }

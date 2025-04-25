@@ -34,6 +34,8 @@ export class UserService {
       long: 1,
       tien: 1,
     }
+    user.peoples = 10;
+
 
     await this.userRepository.save(user);
     console.log(user);

@@ -34,7 +34,7 @@ export class UserService {
       long: 1,
       tien: 1,
     }
-    user.peoples = 10;
+    user.peoples = 5;
 
 
     await this.userRepository.save(user);

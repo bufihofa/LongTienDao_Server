@@ -1,7 +1,7 @@
 // src/users/users.service.ts
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { BuildingLevel, Resources, User } from './user.entity';
+import { BuildingLevel, ResourcesList, User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateSectDto } from './dto/createSect.dto';
 import { InventoryService } from '../inventory/inventory.service';
@@ -36,7 +36,7 @@ export class UserService {
     // OK
     user.sectName = createSectDto.sectName;
     user.buildingLevel = new BuildingLevel();
-    user.resources = new Resources();
+    user.resources = new ResourcesList();
     
     user.disciples = [];
     this.inventoryService.createInventory(user);

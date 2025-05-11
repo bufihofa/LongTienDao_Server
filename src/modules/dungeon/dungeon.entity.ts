@@ -1,5 +1,5 @@
 import { Column, Entity, Index, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "../user/user.entity";
+import { ResourcesList, User } from "../user/user.entity";
 import { InventoryItem } from "../inventory/inventory.entity";
 
 
@@ -12,25 +12,28 @@ export class Dungeon {
     @Index()
     user: User;
 
+    @Column({ default: 0 })
+    dungeonType: number; // Type of dungeon
+
+    @Column({ default: 0 })
+    dungeonLevel: number; // Level of dungeon
+
+    @Column({ default: 0 })
+    currentTurn: number;
+
+    @Column({ default: 0 })
+    currentTurnType: number; // Type of current turn (0: fight, 1: item, 2: event)
+
     @Column('jsonb', { default: [] })
     disciples: string[]; // Array of disciple IDs
 
     @Column('jsonb', { default: [] })
     events: string[];
 
-    @Column({ default: 0 })
-    currentTurn: number;
-
-    @Column({ default: 0 })
-    difficultyLevel: number;
-
+    
     @Column('jsonb', { default: [] })
     itemRewards: InventoryItem[]; // Array of rewards for the dungeon
-    @Column('jsonb', { default: {} })
-    resourcesRewards: {
-        spirit: number;
-        stone: number;
-        wood: number;
-        food: number;
-    };
+
+    @Column('jsonb', { default: new ResourcesList() })
+    resourcesRewards: ResourcesList; // Array of resources rewards for the dungeon
 }

@@ -9,7 +9,7 @@ export class BuildingLevel {
     long: number = 1;
     tien: number = 1;
 }
-export class Resources {
+export class ResourcesList {
     spirit: number = 100;
     stone: number = 100;
     wood: number = 100;
@@ -55,7 +55,7 @@ export class User {
     @Column({ type: 'jsonb', nullable: true })
     buildingLevel: BuildingLevel; // Cấp độ của các công trình trong sect
     @Column({ type: 'jsonb', nullable: true })
-    resources: Resources; // Tài nguyên của sect
+    resources: ResourcesList; // Tài nguyên của sect
     /*
     toJSON(){
         return{

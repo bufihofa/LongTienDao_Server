@@ -1,0 +1,27 @@
+import { Controller, Post, UseGuards, Request, Body, Get } from "@nestjs/common";
+import { InventoryService } from "./inventory.service";
+import { ApiBearerAuth, ApiOperation } from "@nestjs/swagger";
+import { JwtAuthGuard } from "../auth/jwt-auth.guard";
+import { Inventory } from "./inventory.entity";
+import { InventoryItem } from "./dto/inventoryItem.dto";
+
+@Controller('inventory')
+export class InventoryController {
+    [x: string]: any;
+    constructor(private readonly inventoryService: InventoryService) {}
+
+    @ApiBearerAuth()
+    @UseGuards(JwtAuthGuard)
+    @Get('inventory')
+    @ApiOperation({ summary: 'Get kho đồ' })
+    async getSect(@Request() req) {
+        return this.inventoryService.getInventory(req.user);
+    }
+    @ApiBearerAuth()
+    @UseGuards(JwtAuthGuard)
+    @Post('addItem')
+    @ApiOperation({ summary: 'Thêm đồ vào kho' })
+    async addItem(@Request() req, @Body() item: InventoryItem) {
+        return this.inventoryService.addItem(req.user, item);
+    }
+}

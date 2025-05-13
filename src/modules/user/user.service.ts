@@ -4,12 +4,16 @@ import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateSectDto } from './dto/createSect.dto';
+import { InventoryService } from '../inventory/inventory.service';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
+
+    private readonly inventoryService: InventoryService,
+    
   ) {}
 
   async createSect(u: User, createSectDto: CreateSectDto): Promise<any> {
@@ -36,6 +40,7 @@ export class UserService {
     }
     user.peoples = 5;
 
+    this.inventoryService.createInventory(user);
 
     await this.userRepository.save(user);
     console.log(user);

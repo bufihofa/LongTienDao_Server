@@ -1,15 +1,11 @@
 import { Column, Entity, Index, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "../user/user.entity";
+import { InventoryItem } from "./dto/inventoryItem.dto";
 
-export interface InventoryItem {
-    itemId: number;      // Tham chiếu đến ItemDetails (ví dụ: Item.SWORDTEST)
-    quantity: number;    // Số lượng của item này
-    // Các stats khác có thể được thêm vào đây dưới dạng key-value pairs
-    // Ví dụ: damage?: number; defense?: number;
-    [key: string]: any;  // Cho phép các stats động khác
-}
+
 @Entity()
 export class Inventory {
+    [x: string]: {};
     @PrimaryGeneratedColumn('uuid')
     id: string; 
     
@@ -22,4 +18,7 @@ export class Inventory {
     // items sẽ là một mảng các đối tượng InventoryItem
     @Column('jsonb', { default: [] })
     items: InventoryItem[]; 
+
+    @Column({ default: 100000 })
+    idCount: number;
 }

@@ -7,6 +7,8 @@ import { ConfigService } from '@nestjs/config';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
+import { In } from 'typeorm';
+import { InventoryModule } from './modules/inventory/inventory.module';
 
 @Module({
 
@@ -31,6 +33,7 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
     }),
     AuthModule,
     UserModule,
+    InventoryModule,
     
   ],
 

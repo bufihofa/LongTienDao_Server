@@ -1,35 +1,119 @@
 
 export enum ItemType{
-    WEAPON = 'WEAPON',
-    ARMOR = 'ARMOR',
-    
+    ThienPhuThach = 'ThienPhuThach',
+    TaiNguyen = 'TaiNguyen',
+    DotPha = 'DotPha',
 }
 export enum Item{
-    SWORDTEST = 19999,
-    HELMETTEST = 19998,
+
+    ThienPhuThach = 10001, 
+
+    TaiNguyen_STONE = 101,
+    TaiNguyen_WOOD = 102,
+
+    DotPha_CuuUyenLongChau = 1001,
+    DotPha_LamDuongThach = 1002,
+    DotPha_BichHaiLongLien = 1003,
+    DotPha_LamNgocTuy = 1004,
+    DotPha_CoMocNgungSuong = 1005,
+    DotPha_LoiDinhCoMoc = 1006,
+    DotPha_ThaiDuongLinhQua = 1007,
+    DotPha_ThienHoaLinhThach = 1008,
 
 }
 
-const ItemDetails = {
-
-    [Item.SWORDTEST]: {
-        id: Item.SWORDTEST,
-        name: 'Kiếm',
-        description: 'Một thanh kiếm sắc bén, thích hợp cho việc chiến đấu.',
-        type: ItemType.WEAPON,
-        image: 'sword_0',
-        stack: false,
+export const ItemDetails = {
+    [Item.ThienPhuThach]: {
+        id: Item.ThienPhuThach,
+        name: 'Thiên Phú Thạch',
+        description: 'Đá cổ kích hoạt Huyết mạch trong cơ thể phàm nhân. Phẩm chất đá càng cao, hiệu quả kích hoạt càng cao.',
+        type: ItemType.ThienPhuThach,
+        image: 'ThienPhuThach',
+        stack: true,
     },
 
-    [Item.HELMETTEST]: {
-        id: Item.HELMETTEST,
-        name: 'Mũ',
-        description: 'Mũ dày, giúp người mặc có khả năng chống đỡ tốt.',
-        type: ItemType.ARMOR,
-        image: 'armor_0',
-        stack: false,
+    [Item.TaiNguyen_STONE]: {
+        id: Item.TaiNguyen_STONE,
+        name: 'Đá',
+        description: 'Đá.',
+        type: ItemType.TaiNguyen,
+        image: 'stone',
+        stack: true,
+    },
+    [Item.TaiNguyen_WOOD]: {
+        id: Item.TaiNguyen_WOOD,
+        name: 'Gỗ',
+        description: 'Gỗ.',
+        type: ItemType.TaiNguyen,
+        image: 'wood',
+        stack: true,
     },
 
+
+    [Item.DotPha_CuuUyenLongChau]: {
+        id: Item.DotPha_CuuUyenLongChau,
+        name: 'Cửu Uyên Long Châu',
+        description: 'Viên ngọc kết tinh từ long khí nơi chín vực biển sâu.',
+        type: ItemType.DotPha,
+        image: 'item_1',
+        stack: true,
+    },
+    [Item.DotPha_LamDuongThach]: {
+        id: Item.DotPha_LamDuongThach,
+        name: 'Lam Dương Thạch',
+        description: 'Khối ngọc thô màu xanh dương đậm, bề mặt có những vết nứt tự nhiên ánh lên sắc cầu vồng mờ ảo.',
+        type: ItemType.DotPha,
+        image: 'item_2',
+        stack: true,
+    },
+    [Item.DotPha_BichHaiLongLien]: {
+        id: Item.DotPha_BichHaiLongLien,
+        name: 'Bích Hải Long Liên',
+        description: 'Bông sen mang màu xanh biếc của đại dương sâu thẳm, phần nhụy lại có màu lam ngọc phát quang.',
+        type: ItemType.DotPha,
+        image: 'item_3',
+        stack: true,
+    },
+    [Item.DotPha_LamNgocTuy]: {
+        id: Item.DotPha_LamNgocTuy,
+        name: 'Lam Ngọc Tủy',
+        description: 'Khối ngọc thạch được kết tinh từ linh khí tinh túy nhất của biển cả mênh mông.',
+        type: ItemType.DotPha,
+        image: 'item_4',
+        stack: true,
+    },
+    [Item.DotPha_CoMocNgungSuong]: {
+        id: Item.DotPha_CoMocNgungSuong,
+        name: 'Cổ Mộc Ngưng Sương',
+        description: 'Gốc dị thảo màu xanh ngọc bích, hình dáng tựa san hô cổ đại. ',
+        type: ItemType.DotPha,
+        image: 'item_6',
+        stack: true,
+    },
+    [Item.DotPha_LoiDinhCoMoc]: {
+        id: Item.DotPha_LoiDinhCoMoc,
+        name: 'Lôi Đình Cổ Mộc',
+        description: 'Thân gỗ đen sét đánh, bên trong ẩn chứa những tia sét màu xanh lam.',
+        type: ItemType.DotPha,
+        image: 'item_8',
+        stack: true,
+    },
+    [Item.DotPha_ThaiDuongLinhQua]: {
+        id: Item.DotPha_ThaiDuongLinhQua,
+        name: 'Thái Dương Linh Quả',
+        description: 'Một loại quả màu vàng rực rỡ, tỏa ra luồng sáng vàng kim tinh khiết, tựa như một thánh vật.',
+        type: ItemType.DotPha,
+        image: 'item_10',
+        stack: true,
+    },
+    [Item.DotPha_ThienHoaLinhThach]: {
+        id: Item.DotPha_ThienHoaLinhThach,
+        name: 'Thiên Hỏa Linh Thạch',
+        description: 'Mảnh vỡ của một thiên thạch, tỏa ra linh khí dồi dào.',
+        type: ItemType.DotPha,
+        image: 'item_11',
+        stack: true,
+    },
 };
 
-const itemObject22 = ItemDetails[Item.SWORDTEST]; 
+//const itemObject22 = ItemDetails[Item.SWORDTEST]; 

@@ -4,7 +4,7 @@ import { User } from "../user/user.entity";
 import { Inventory } from "./inventory.entity";
 import { Repository } from "typeorm";
 import { InventoryItem } from "./dto/inventoryItem.dto";
-
+import { ItemDetails } from "src/common/items/items";
 @Injectable()
 export class InventoryService {
     constructor(
@@ -27,6 +27,27 @@ export class InventoryService {
             success: true,
             message: 'Inventory retrieved successfully',
             inventory: inventory,
+        };
+    }
+    async getInventoryWithDetails(u: User): Promise<any> {
+        const inventory = await this.inventoryRepository.findOne({ where: { user: u }});
+        if (!inventory) {
+            return { success: false, message: 'Inventory not found', errorCode: 3002 };
+        }
+        let result: any[] = [];
+        for(const item of inventory.items) {
+            result.push({
+                id: item.id,
+                type: item.type,
+                data: item.data,
+                quantity: item.quantity,
+                details: ItemDetails[item.type] || [],
+            });
+        }
+        return {
+            success: true,
+            message: 'Inventory retrieved successfully',
+            inventory: result,
         };
     }
     async addItem(u: User, item: InventoryItem): Promise<any> {

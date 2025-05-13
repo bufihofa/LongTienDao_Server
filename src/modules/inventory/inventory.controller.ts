@@ -14,8 +14,15 @@ export class InventoryController {
     @UseGuards(JwtAuthGuard)
     @Get('inventory')
     @ApiOperation({ summary: 'Get kho đồ' })
-    async getSect(@Request() req) {
+    async getInventory(@Request() req) {
         return this.inventoryService.getInventory(req.user);
+    }
+    @ApiBearerAuth()
+    @UseGuards(JwtAuthGuard)
+    @Get('inventoryDetails')
+    @ApiOperation({ summary: 'Get kho đồ chi tiết' })
+    async getInventoryDetails(@Request() req) {
+        return this.inventoryService.getInventoryWithDetails(req.user);
     }
     @ApiBearerAuth()
     @UseGuards(JwtAuthGuard)

@@ -1,15 +1,25 @@
 
 export enum ItemType{
     ThienPhuThach = 'ThienPhuThach',
-    TaiNguyen = 'TaiNguyen',
     DotPha = 'DotPha',
+
+    VuKhi = 'VuKhi',
+    YPhuc = 'YPhuc',
+    TrangSuc = 'TrangSuc',
+
+    CongPhap = 'CongPhap',
+
+    ThaoDuoc = 'ThaoDuoc',
+    DanDuoc = 'DanDuoc',
+    DanPhuong = 'DanPhuong',
+
+    NguyenLieu = 'NguyenLieu',
+    BanVe = 'BanVe',
+    
 }
 export enum Item{
 
     ThienPhuThach = 10001, 
-
-    TaiNguyen_STONE = 101,
-    TaiNguyen_WOOD = 102,
 
     DotPha_CuuUyenLongChau = 1001,
     DotPha_LamDuongThach = 1002,
@@ -32,22 +42,6 @@ export const ItemDetails = {
         stack: true,
     },
 
-    [Item.TaiNguyen_STONE]: {
-        id: Item.TaiNguyen_STONE,
-        name: 'Đá',
-        description: 'Đá.',
-        type: ItemType.TaiNguyen,
-        image: 'stone',
-        stack: true,
-    },
-    [Item.TaiNguyen_WOOD]: {
-        id: Item.TaiNguyen_WOOD,
-        name: 'Gỗ',
-        description: 'Gỗ.',
-        type: ItemType.TaiNguyen,
-        image: 'wood',
-        stack: true,
-    },
 
 
     [Item.DotPha_CuuUyenLongChau]: {

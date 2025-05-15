@@ -43,7 +43,6 @@ export class UserService {
     this.inventoryService.createInventory(user);
 
     await this.userRepository.save(user);
-    console.log(user);
     return {
       success: true,
       message: 'Sect created successfully',

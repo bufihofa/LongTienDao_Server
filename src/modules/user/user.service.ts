@@ -38,6 +38,13 @@ export class UserService {
       long: 1,
       tien: 1,
     }
+    user.resources = {
+      spirit: 0,
+      stone: 0,
+      wood: 0,
+      food: 0,
+      cash: 0,
+    }
     user.peoples = 5;
 
     this.inventoryService.createInventory(user);

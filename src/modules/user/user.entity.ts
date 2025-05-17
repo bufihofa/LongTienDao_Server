@@ -38,5 +38,15 @@ export class User {
         long: number;
         tien: number;
     };
+    @Column({ type: 'jsonb', nullable: true })
+    resources: {
+        spirit: number;
+        stone: number;
+        wood: number;
+        food: number;
+        cash: number;
+    }
+
+    
 
 }

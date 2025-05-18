@@ -62,9 +62,19 @@ export class DungeonService {
     }
     async updateDungeon(user: User): Promise<any> {
         // Cập nhật trạng thái của phiên thám hiểm tàn tích
+        const dungeon = await this.dungeonRepository.findOne({ where: { user: { id: user.id } } });
+        if (!dungeon) {
+            return { success: false, message: 'Dungeon not found', errorCode: 4001 };
+        }
+        
     }
 
     async endDungeon(user: User): Promise<any> {
         // Kết thúc phiên thám hiểm tàn tích
+        const dungeon = await this.dungeonRepository.findOne({ where: { user: { id: user.id } } });
+        if (!dungeon) {
+            return { success: false, message: 'Dungeon not found', errorCode: 4002 };
+        }
+
     }
 }

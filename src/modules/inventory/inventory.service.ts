@@ -1,9 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "../user/user.entity";
-import { Inventory } from "./inventory.entity";
+import { Inventory, InventoryItem } from "./inventory.entity";
 import { Repository } from "typeorm";
-import { InventoryItem } from "./dto/inventoryItem.dto";
 import { ItemDetails } from "src/common/items/items";
 @Injectable()
 export class InventoryService {
@@ -25,7 +24,7 @@ export class InventoryService {
         return u;
     }
     async getInventory(u: User): Promise<any> {
-        const inventory = await this.inventoryRepository.findOne({ where: { user: u } });
+        const inventory = await this.inventoryRepository.findOne({ where: { user: { id: u.id } } });
         if (!inventory) {
             return { success: false, message: 'Inventory not found', errorCode: 3000 };
         }
@@ -36,7 +35,7 @@ export class InventoryService {
         };
     }
     async getInventoryWithDetails(u: User): Promise<any> {
-        const inventory = await this.inventoryRepository.findOne({ where: { user: u }});
+        const inventory = await this.inventoryRepository.findOne({ where: { user: { id: u.id } } });
         if (!inventory) {
             return { success: false, message: 'Inventory not found', errorCode: 3002 };
         }
@@ -57,7 +56,7 @@ export class InventoryService {
         };
     }
     async addItem(u: User, item: InventoryItem): Promise<any> {
-        const inventory = await this.inventoryRepository.findOne({ where: { user: u } });
+        const inventory = await this.inventoryRepository.findOne({ where: { user: { id: u.id } } });
         if (!inventory) {
             return { success: false, message: 'Inventory not found', errorCode: 3001 };
         }

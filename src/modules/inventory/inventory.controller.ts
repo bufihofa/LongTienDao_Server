@@ -2,12 +2,9 @@ import { Controller, Post, UseGuards, Request, Body, Get } from "@nestjs/common"
 import { InventoryService } from "./inventory.service";
 import { ApiBearerAuth, ApiOperation } from "@nestjs/swagger";
 import { JwtAuthGuard } from "../auth/jwt-auth.guard";
-import { Inventory } from "./inventory.entity";
-import { InventoryItem } from "./dto/inventoryItem.dto";
-
+import { Inventory, InventoryItem } from "./inventory.entity";
 @Controller('inventory')
 export class InventoryController {
-    [x: string]: any;
     constructor(private readonly inventoryService: InventoryService) {}
 
     @ApiBearerAuth()

@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne, Index } from 'typeorm';
 import { Disciple } from '../disciple/disciple.entity';
 import { Inventory } from '../inventory/inventory.entity';
+import { Dungeon } from '../dungeon/dungeon.entity';
 
 @Entity()
 export class User {
@@ -30,6 +31,9 @@ export class User {
 
     @OneToOne(() => Inventory, (inventory) => inventory.user, { cascade: true })
     inventory: Inventory; // The inventory owned by this user
+    
+    @OneToOne(() => Dungeon, (dungeon) => dungeon.user, { cascade: true })
+    dungeon: Dungeon; 
 
     @Column({ type: 'jsonb', nullable: true })
     buildingLevel: {

@@ -4,6 +4,9 @@ import { User } from "../user/user.entity";
 import { Inventory, InventoryItem } from "./inventory.entity";
 import { Repository } from "typeorm";
 import { ItemDetails } from "src/common/items/items";
+
+
+//ERROR CODE: 3XXX
 @Injectable()
 export class InventoryService {
     constructor(

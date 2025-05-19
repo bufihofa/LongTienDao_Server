@@ -24,6 +24,13 @@ export class Dungeon {
     @Column({ default: 0 })
     difficultyLevel: number;
 
+    @Column('jsonb', { default: [] })
+    itemRewards: InventoryItem[]; // Array of rewards for the dungeon
     @Column('jsonb', { default: {} })
-    rewards: InventoryItem[]; // Array of rewards for the dungeon
+    resourcesRewards: {
+        spirit: number;
+        stone: number;
+        wood: number;
+        food: number;
+    };
 }

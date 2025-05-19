@@ -5,7 +5,9 @@ import { User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateSectDto } from './dto/createSect.dto';
 import { InventoryService } from '../inventory/inventory.service';
+import { DungeonService } from '../dungeon/dungeon.service';
 
+//ERROR CODE: 2XXX
 @Injectable()
 export class UserService {
   constructor(
@@ -13,6 +15,7 @@ export class UserService {
     private readonly userRepository: Repository<User>,
 
     private readonly inventoryService: InventoryService,
+    private readonly dungeonService: DungeonService,
     
   ) {}
 
@@ -46,10 +49,12 @@ export class UserService {
       cash: 0,
     }
     user.peoples = 5;
-
+    user.disciples = [];
     this.inventoryService.createInventory(user);
+    this.dungeonService.createDungeon(user);
 
     await this.userRepository.save(user);
+    console.log(user);
     return {
       success: true,
       message: 'Sect created successfully',

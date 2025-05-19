@@ -6,11 +6,14 @@ import { User } from './user.entity';
 import { UserController } from './user.controller';
 import { Inventory } from '../inventory/inventory.entity';
 import { InventoryModule } from '../inventory/inventory.module';
+import { Dungeon } from '../dungeon/dungeon.entity';
+import { DungeonModule } from '../dungeon/dungeon.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User, Inventory]),
+    TypeOrmModule.forFeature([User, Inventory, Dungeon]),
     InventoryModule,
+    DungeonModule,
   ],
   providers: [UserService],
   exports: [UserService],

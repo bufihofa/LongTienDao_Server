@@ -8,6 +8,10 @@ import { ConfigService } from '@nestjs/config';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { error } from 'console';
+
+
+//ERROR CODE: 1XXX
+
 @Injectable()
 export class AuthService {
     constructor(

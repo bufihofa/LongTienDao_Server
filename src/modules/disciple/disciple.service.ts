@@ -4,6 +4,9 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { User } from "../user/user.entity";
 
+
+//ERROR CODE: 5XXX
+
 @Injectable()
 export class DiscipleService {
     constructor(
@@ -23,6 +26,7 @@ export class DiscipleService {
         };
     }
 
+    
     
 
 }

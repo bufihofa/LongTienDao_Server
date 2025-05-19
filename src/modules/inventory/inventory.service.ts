@@ -16,15 +16,7 @@ export class InventoryService {
 
     async createInventory(u: User): Promise<any> {
         const newInventory = this.inventoryRepository.create();
-        newInventory.user = u;
-
-
-        
         u.inventory = newInventory;
-
-
-
-        return u;
     }
     async getInventory(u: User): Promise<any> {
         const inventory = await this.inventoryRepository.findOne({ where: { user: { id: u.id } } });

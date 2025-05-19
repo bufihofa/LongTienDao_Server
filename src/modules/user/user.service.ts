@@ -49,6 +49,7 @@ export class UserService {
       cash: 0,
     }
     user.peoples = 5;
+    user.maxDisciples = 3;
     user.disciples = [];
     this.inventoryService.createInventory(user);
     this.dungeonService.createDungeon(user);

@@ -23,8 +23,11 @@ export class User {
     @Column({ default: 'member' })
     role: string; // 'admin' | 'member' | 'guest'
     
-    @Column({ default: 0 })
+    @Column({ default: 5 })
     peoples: number; // Số lượng đệ tử ký danh
+
+    @Column({ default: 5 })
+    maxDisciples: number; // Số lượng đệ tử nội môn tối đa
 
     @OneToMany(() => Disciple, (disciple) => disciple.user, { cascade: true })
     disciples: Disciple[]; // The disciples owned by this user
@@ -52,6 +55,19 @@ export class User {
         cash: number;
     }
 
+    toJSON(){
+        return{
+            id: this.id,
+            username: this.username,
+            email: this.email,
+            role: this.role,
+            sectName: this.sectName || null,
+            peoples: this.peoples,
+            maxDisciples: this.maxDisciples,
+            buildingLevel: this.buildingLevel,
+            resources: this.resources,
+        }
+    }
     
 
 }

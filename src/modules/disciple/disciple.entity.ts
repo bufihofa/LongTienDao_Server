@@ -6,13 +6,13 @@ export class Disciple {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column() 
+    @Column({ default: 'Liễu Như Yên', nullable: true }) 
     name: string;
 
-    @Column()
+    @Column({ default: 1, nullable: true }) 
     avatar: number; 
 
-    @Column({ type: 'jsonb' })
+    @Column({ type: 'jsonb', nullable: true  })
     stats: {
         hp: number;
         mp: number;

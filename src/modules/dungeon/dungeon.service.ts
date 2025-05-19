@@ -15,11 +15,7 @@ export class DungeonService {
     ) {}
     async createDungeon(user: User): Promise<any> {
         const newDungeon = this.dungeonRepository.create();
-        newDungeon.user = user;
-
         user.dungeon = newDungeon;
-
-        return user;
     }
     async getAllDungeon(user: User): Promise<any> {
 

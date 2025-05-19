@@ -13,20 +13,32 @@ export class DiscipleService {
         @InjectRepository(Disciple)
         private readonly discipleRepository: Repository<Disciple>,
     ) {}
-    
-    async createDisciple(u: User, discipleName: string): Promise<any> {
-        
-        const newDisciple = this.discipleRepository.create();
-
-        await this.discipleRepository.save(newDisciple);
+    async getDisciple(u: User): Promise<any> {
+        const disciples = await this.discipleRepository.find({ where: { user: { id: u.id } } });
         return {
             success: true,
-            message: 'Disciple created successfully',
-            discipleName: discipleName,
+            message: 'Disciple retrieved successfully',
+            disciples: disciples,
         };
     }
+    async addDiscipleRandom(u: User): Promise<any> {
+        if(u.role != 'admin') {
+            return { success: false, message: 'You are not allowed to add disciple', errorCode: 5999 };
+        }
+        const newDisciple = this.discipleRepository.create();
+        console.log(newDisciple);
 
-    
+        
+        newDisciple.user = u;
+
+        await this.discipleRepository.save(newDisciple);
+
+        return {
+            success: true,
+            message: 'Disciple added successfully',
+            disciple: newDisciple,
+        };
+    }
     
 
 }

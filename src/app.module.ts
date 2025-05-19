@@ -9,6 +9,9 @@ import { AuthModule } from './modules/auth/auth.module';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { In } from 'typeorm';
 import { InventoryModule } from './modules/inventory/inventory.module';
+import { DiscipleModule } from './modules/disciple/disciple.module';
+import { Dungeon } from './modules/dungeon/dungeon.entity';
+import { DungeonModule } from './modules/dungeon/dungeon.module';
 
 @Module({
 
@@ -34,6 +37,8 @@ import { InventoryModule } from './modules/inventory/inventory.module';
     AuthModule,
     UserModule,
     InventoryModule,
+    DiscipleModule,
+    DungeonModule,
     
   ],
 

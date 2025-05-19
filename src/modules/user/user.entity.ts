@@ -3,6 +3,20 @@ import { Disciple } from '../disciple/disciple.entity';
 import { Inventory } from '../inventory/inventory.entity';
 import { Dungeon } from '../dungeon/dungeon.entity';
 
+export class BuildingLevel {
+    main: number = 1; 
+    book: number = 1; 
+    long: number = 1;
+    tien: number = 1;
+}
+export class Resources {
+    spirit: number = 100;
+    stone: number = 100;
+    wood: number = 100;
+    food: number = 100;
+    
+    cash: number = 0;
+}
 @Entity()
 export class User {
     @PrimaryGeneratedColumn('uuid')
@@ -23,10 +37,10 @@ export class User {
     @Column({ default: 'member' })
     role: string; // 'admin' | 'member' | 'guest'
     
-    @Column({ default: 5 })
+    @Column({nullable: true})
     peoples: number; // Số lượng đệ tử ký danh
 
-    @Column({ default: 5 })
+    @Column({nullable: true})
     maxDisciples: number; // Số lượng đệ tử nội môn tối đa
 
     @OneToMany(() => Disciple, (disciple) => disciple.user, { cascade: true })
@@ -39,22 +53,10 @@ export class User {
     dungeon: Dungeon; 
 
     @Column({ type: 'jsonb', nullable: true })
-    buildingLevel: {
-        main: number; 
-        book: number; 
-        long: number;
-        tien: number;
-    };
+    buildingLevel: BuildingLevel; // Cấp độ của các công trình trong sect
     @Column({ type: 'jsonb', nullable: true })
-    resources: {
-        spirit: number;
-        stone: number;
-        wood: number;
-        food: number;
-        
-        cash: number;
-    }
-
+    resources: Resources; // Tài nguyên của sect
+    /*
     toJSON(){
         return{
             id: this.id,
@@ -68,6 +70,6 @@ export class User {
             resources: this.resources,
         }
     }
-    
+    */
 
 }

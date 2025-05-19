@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { Disciple } from "./disciple.entity";
+import { Disciple, DiscipleStats } from "./disciple.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { User } from "../user/user.entity";
@@ -28,7 +28,7 @@ export class DiscipleService {
         const newDisciple = this.discipleRepository.create();
         console.log(newDisciple);
 
-        
+        newDisciple.stats = new DiscipleStats();
         newDisciple.user = u;
 
         await this.discipleRepository.save(newDisciple);

@@ -1,7 +1,7 @@
 // src/users/users.service.ts
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { User } from './user.entity';
+import { BuildingLevel, Resources, User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateSectDto } from './dto/createSect.dto';
 import { InventoryService } from '../inventory/inventory.service';
@@ -35,21 +35,9 @@ export class UserService {
 
     // OK
     user.sectName = createSectDto.sectName;
-    user.buildingLevel = {
-      main: 1,
-      book: 1,
-      long: 1,
-      tien: 1,
-    }
-    user.resources = {
-      spirit: 100,
-      stone: 0,
-      wood: 0,
-      food: 0,
-      cash: 0,
-    }
-    user.peoples = 5;
-    user.maxDisciples = 3;
+    user.buildingLevel = new BuildingLevel();
+    user.resources = new Resources();
+    
     user.disciples = [];
     this.inventoryService.createInventory(user);
     this.dungeonService.createDungeon(user);

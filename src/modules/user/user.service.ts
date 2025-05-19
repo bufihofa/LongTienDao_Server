@@ -39,7 +39,7 @@ export class UserService {
       tien: 1,
     }
     user.resources = {
-      spirit: 0,
+      spirit: 100,
       stone: 0,
       wood: 0,
       food: 0,

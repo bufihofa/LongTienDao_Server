@@ -44,6 +44,7 @@ export class User {
         stone: number;
         wood: number;
         food: number;
+        
         cash: number;
     }
 

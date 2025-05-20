@@ -1,9 +1,9 @@
 
 export enum MonsterType{
-    Ho = 1010, // Hổ
-    Soi = 1020, // Sói
-    Lon = 1030, // Lợn
-    Tho = 1040, // Thỏ
+    Ho = 'Ho', // Hổ
+    Soi = 'Soi', // Sói
+    Lon = 'Lon', // Lợn
+    Tho = 'Tho', // Thỏ
 }
 export const MonsterDetails = {
     [MonsterType.Ho]: {

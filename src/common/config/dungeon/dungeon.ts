@@ -1,25 +1,55 @@
+import { Item } from "../inventory/items";
+import { MonsterType } from "./monster";
+
 export enum DungeonType {
-    RungUMinh = 1001, // Rừng U Minh
-    RungCucPhuong = 1002, // Rừng Cúc Phương
-    MaThienLanh = 1003, // Ma Thiên Lãnh 
-    NamCatTien = 1004, // Rừng Nam Cát Tiên
+    RungUMinh = 'RungUMinh', // Rừng U Minh
+    RungCucPhuong = 'RungCucPhuong', // Rừng Cúc Phương
+    MaThienLanh = 'MaThienLanh', // Ma Thiên Lãnh 
+    NamCatTien = 'NamCatTien', // Rừng Nam Cát Tiên
 
-    DongPhongNha = 2001, // Động Phong Nha
-    TamCocBichDong = 2002, // Tam Cốc Bích Động
-    DongHuongTich = 2003, // Động Hương Tích
-    DongThienCung = 2004, // Động Thiên Cung
+    DongPhongNha = 'DongPhongNha', // Động Phong Nha
+    TamCocBichDong = 'TamCocBichDong', // Tam Cốc Bích Động
+    DongHuongTich = 'DongHuongTich', // Động Hương Tích
+    DongThienCung = 'DongThienCung', // Động Thiên Cung
 
-    NguHanhSon = 3001, // Ngũ Hành Sơn
-    CaoNguyenMocChau = 3002, // Cao Nguyên Mộc Châu
-    NuiTanVien = 3003, // Núi Tản Viên
-    NuiHamRong = 3004, // Núi Hàm Rồng
+    NguHanhSon = 'NguHanhSon', // Ngũ Hành Sơn
+    CaoNguyenMocChau = 'CaoNguyenMocChau', // Cao Nguyên Mộc Châu
+    NuiTanVien = 'NuiTanVien', // Núi Tản Viên
+    NuiHamRong = 'NuiHamRong', // Núi Hàm Rồng
 
-    ThanhDiaMySon = 4001, // Thánh Địa Mỹ Sơn
-    ThanhCoLoa = 4002, // Thành Cổ Loa
-    VanMieu = 4003, // Văn Miếu
+    ThanhDiaMySon = 'ThanhDiaMySon', // Thánh Địa Mỹ Sơn
+    ThanhCoLoa = 'ThanhCoLoa', // Thành Cổ Loa
+    VanMieu = 'VanMieu', // Văn Miếu
 
-    DamDaTrach = 5001, // Đầm Dạ Trạch
-    HoTaVong = 5002, // Hồ Tả Vọng
+    DamDaTrach = 'DamDaTrach', // Đầm Dạ Trạch
+    HoTaVong = 'HoTaVong', // Hồ Tả Vọng
 
-    DongHaiLongCung = 6001, // Đông Hải Long Cung
+    DongHaiLongCung = 'DongHaiLongCung', // Đông Hải Long Cung
+}
+export const DungeonDetails = {
+    [DungeonType.RungUMinh]: {
+        id: DungeonType.RungUMinh,
+        name: 'Rừng U Minh',
+        image: 'rung_u_minh',
+        monsters: {
+            [MonsterType.Ho]: 1,
+            [MonsterType.Soi]: 2,
+            [MonsterType.Lon]: 3,
+            [MonsterType.Tho]: 10,
+        },
+        items: [
+            {
+                type: Item.DotPha_BichHaiLongLien,
+                weight: 500,
+                minQuantity: 1,
+                maxQuantity: 3,
+
+                data: [
+                    ['hp', 100, 300],
+                    ['thanthuc', 1, 3]
+                ]
+            },
+            
+        ],
+    },
 }

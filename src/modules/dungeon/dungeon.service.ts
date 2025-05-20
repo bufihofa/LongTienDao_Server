@@ -5,6 +5,9 @@ import { StartDungeonDto } from "./dto/startDungeon.dto";
 import { Dungeon } from "./dungeon.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
+import { DungeonDetails, DungeonType } from "src/common/config/dungeon/dungeon";
+import { MonsterDetails } from "src/common/config/dungeon/monster";
+import { Inventory, InventoryItem } from "../inventory/inventory.entity";
 
 //ERROR CODE: 4XXX
 @Injectable()
@@ -18,7 +21,38 @@ export class DungeonService {
         user.dungeon = newDungeon;
     }
     async getAllDungeon(user: User): Promise<any> {
-
+        /*
+        const config = DungeonDetails[DungeonType.RungUMinh];
+        const monster = config.monsters;
+        //entries monster
+        const monsterEntries = Object.entries(monster);
+        for (const [key, value] of monsterEntries) {
+            console.log(MonsterDetails[key], value);
+        }
+        return DungeonDetails;
+        */
+       const itemconfig = DungeonDetails[DungeonType.RungUMinh];
+       const items = itemconfig.items;
+       console.log(items);
+       for (const item of items) {
+            console.log(item);
+            const drop = this.getRandomItem(item);
+            console.log(drop);
+       }
+       
+    }
+    randomInt(min: number, max: number): number {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    getRandomItem(item: any): InventoryItem {
+        let result = new InventoryItem();
+        result.type = item.type;
+        result.quantity = this.randomInt(item.minQuantity, item.maxQuantity);
+        result.data = {};
+        for (const key of item.data) {
+            result.data[key[0]] = this.randomInt(key[1], key[2]);
+        }
+        return result;
     }
     async startDungeon(user: User, startDungeonDto: StartDungeonDto): Promise<any> {
         // Tạo một phiên thám hiểm tàn tích mới

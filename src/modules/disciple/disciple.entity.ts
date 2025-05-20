@@ -10,11 +10,11 @@ export class DiscipleStats {
 
     age: number = 7000; // Tuổi (tính theo ngày)
 
-    thanthuc: number = 3; // Thần thức
-    coduyen: number = 3; // Cơ duyên
-    miluc: number = 3; // Mị lực
-    ngotinh: number = 3; // Ngộ tính
-    cancot: number = 3; // Căn cốt
+    thanthuc: number = 30; // Thần thức
+    coduyen: number = 30; // Cơ duyên
+    miluc: number = 30; // Mị lực
+    ngotinh: number = 30; // Ngộ tính
+    cancot: number = 30; // Căn cốt
 
     immortalBloodline: number = 10; //Thiên phú Tiên Đạo  
     immortalLevel: number = 1; // Cảnh giới hiện tại của Tiên Đạo

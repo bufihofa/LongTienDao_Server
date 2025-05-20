@@ -3,9 +3,9 @@ import { User } from "../user/user.entity";
 import { ApiProperty } from "@nestjs/swagger";
 
 export class InventoryItem {
-    id: number;        // ID của item trong kho
+    id?: number;        // ID của item trong kho
     @ApiProperty({ example: 1 })
-    type: number;      // Tham chiếu đến ItemDetails (ví dụ: Item.SWORDTEST)
+    type: string;      // Tham chiếu đến ItemDetails (ví dụ: Item.SWORDTEST)
     @ApiProperty({ example: 5 })
     quantity: number;    // Số lượng của item này
     @ApiProperty({ example: { damage: 5, defense: 2 } })

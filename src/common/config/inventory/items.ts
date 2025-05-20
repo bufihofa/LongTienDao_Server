@@ -18,16 +18,16 @@ export enum ItemType{
 }
 export enum Item{
 
-    ThienPhuThach = 10001, 
+    ThienPhuThach = 'ThienPhuThach', 
 
-    DotPha_CuuUyenLongChau = 1001,
-    DotPha_LamDuongThach = 1002,
-    DotPha_BichHaiLongLien = 1003,
-    DotPha_LamNgocTuy = 1004,
-    DotPha_CoMocNgungSuong = 1005,
-    DotPha_LoiDinhCoMoc = 1006,
-    DotPha_ThaiDuongLinhQua = 1007,
-    DotPha_ThienHoaLinhThach = 1008,
+    DotPha_CuuUyenLongChau = 'DotPha_CuuUyenLongChau',
+    DotPha_LamDuongThach = 'DotPha_LamDuongThach',
+    DotPha_BichHaiLongLien = 'DotPha_BichHaiLongLien',
+    DotPha_LamNgocTuy = 'DotPha_LamNgocTuy',
+    DotPha_CoMocNgungSuong = 'DotPha_CoMocNgungSuong',
+    DotPha_LoiDinhCoMoc = 'DotPha_LoiDinhCoMoc',
+    DotPha_ThaiDuongLinhQua = 'DotPha_ThaiDuongLinhQua',
+    DotPha_ThienHoaLinhThach = 'DotPha_ThienHoaLinhThach',
 
 }
 

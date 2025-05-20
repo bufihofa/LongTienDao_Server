@@ -1,4 +1,3 @@
-
 export enum ItemType{
     ThienPhuThach = 'ThienPhuThach',
     DotPha = 'DotPha',
@@ -41,9 +40,6 @@ export const ItemDetails = {
         image: 'ThienPhuThach',
         stack: true,
     },
-
-
-
     [Item.DotPha_CuuUyenLongChau]: {
         id: Item.DotPha_CuuUyenLongChau,
         name: 'Cửu Uyên Long Châu',

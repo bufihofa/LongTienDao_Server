@@ -52,7 +52,7 @@ export class AuthService {
 
     async register(registerDto: RegisterDto) {
         const { username, password, email } = registerDto;
-
+        console.log(registerDto);
         const existingUser = await this.userRepository.findOne({ where: { username } });
         if (existingUser) {
             return { success: false, message: 'Username already exists', errorCode: 1003 };

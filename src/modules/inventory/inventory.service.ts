@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "../user/user.entity";
 import { Inventory, InventoryItem } from "./inventory.entity";
 import { Repository } from "typeorm";
-import { ItemDetails } from "src/common/config/items";
+import { Item, ItemDetails } from "src/common/config/inventory/items";
 
 
 //ERROR CODE: 3XXX

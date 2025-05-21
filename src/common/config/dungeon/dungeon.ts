@@ -1,5 +1,4 @@
-import { Item } from "../inventory/items";
-import { MonsterType } from "./monster";
+import { RungUMinhConfig } from "./dungeons/RungUMinh";
 
 export enum DungeonType {
     RungUMinh = 'RungUMinh', // Rừng U Minh
@@ -26,34 +25,7 @@ export enum DungeonType {
 
     DongHaiLongCung = 'DongHaiLongCung', // Đông Hải Long Cung
 }
+
 export const DungeonDetails = {
-    [DungeonType.RungUMinh]: {
-        id: DungeonType.RungUMinh,
-        name: 'Rừng U Minh',
-        image: 'rung_u_minh',
-        monsters: {
-            [MonsterType.Ho]: 1,
-            [MonsterType.Soi]: 2,
-            [MonsterType.Lon]: 3,
-            [MonsterType.Tho]: 10,
-        },
-        items: [
-            {
-                type: Item.DotPha_BichHaiLongLien,
-                weight: 500,
-
-                minQuantity: 1,
-                maxQuantity: 3,
-
-                minQuality: 0,
-                maxQuality: 1,
-
-                data: [
-                    ['hp', 100, 300],
-                    ['thanthuc', 1, 3]
-                ]
-            },
-            
-        ],
-    },
+    [DungeonType.RungUMinh]: RungUMinhConfig,
 }

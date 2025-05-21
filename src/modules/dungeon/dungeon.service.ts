@@ -21,16 +21,7 @@ export class DungeonService {
         user.dungeon = newDungeon;
     }
     async getAllDungeon(user: User): Promise<any> {
-        /*
-        const config = DungeonDetails[DungeonType.RungUMinh];
-        const monster = config.monsters;
-        //entries monster
-        const monsterEntries = Object.entries(monster);
-        for (const [key, value] of monsterEntries) {
-            console.log(MonsterDetails[key], value);
-        }
-        return DungeonDetails;
-        */
+        
        const itemconfig = DungeonDetails[DungeonType.RungUMinh];
        const items = itemconfig.items;
        console.log(items);

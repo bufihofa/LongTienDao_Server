@@ -41,8 +41,12 @@ export const DungeonDetails = {
             {
                 type: Item.DotPha_BichHaiLongLien,
                 weight: 500,
+
                 minQuantity: 1,
                 maxQuantity: 3,
+
+                minQuality: 0,
+                maxQuality: 1,
 
                 data: [
                     ['hp', 100, 300],

@@ -1,13 +1,25 @@
 import { Column, Entity, Index, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "../user/user.entity";
 import { ApiProperty } from "@nestjs/swagger";
+import { IsNotEmpty, IsOptional } from "class-validator";
 
 export class InventoryItem {
+    @IsOptional()
     id?: number;        // ID của item trong kho
-    @ApiProperty({ example: 1 })
+
+    @IsNotEmpty({ message: 'Item Type không được để trống' })
+    @ApiProperty({ example: 'TEST_ITEM' })
     type: string;      // Tham chiếu đến ItemDetails (ví dụ: Item.SWORDTEST)
+
+    @IsNotEmpty({ message: 'Quantity không được để trống' })
     @ApiProperty({ example: 5 })
     quantity: number;    // Số lượng của item này
+
+    @IsNotEmpty({ message: 'Quality không được để trống' })
+    @ApiProperty({ example: 0 })
+    quality: number;    //  Phẩm chất của item này (0-4)
+
+    @IsOptional()
     @ApiProperty({ example: { damage: 5, defense: 2 } })
     data: Record<string,number>;  // Cho phép các stats động khác
 }

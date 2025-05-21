@@ -60,7 +60,7 @@ export class InventoryService {
         }
         console.log(inventory.items);
         // Check if item already exists
-        const existingItem = inventory.items.find(i => i.type == item.type && JSON.stringify(i.data) == JSON.stringify(item.data));
+        const existingItem = inventory.items.find(i => i.type == item.type && i.quality == item.quality && JSON.stringify(i.data) == JSON.stringify(item.data));
         
         if (existingItem) {
             existingItem.quantity += item.quantity;

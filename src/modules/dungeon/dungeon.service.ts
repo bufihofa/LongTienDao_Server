@@ -48,6 +48,7 @@ export class DungeonService {
         let result = new InventoryItem();
         result.type = item.type;
         result.quantity = this.randomInt(item.minQuantity, item.maxQuantity);
+        result.quality = this.randomInt(item.minQuality, item.maxQuality);
         result.data = {};
         for (const key of item.data) {
             result.data[key[0]] = this.randomInt(key[1], key[2]);

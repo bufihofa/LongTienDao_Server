@@ -5,9 +5,10 @@ import { StartDungeonDto } from "./dto/startDungeon.dto";
 import { Dungeon } from "./dungeon.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { DungeonDetails, DungeonType } from "src/common/config/dungeon/dungeon";
-import { MonsterDetails } from "src/common/config/dungeon/monster";
+import { DungeonDetails } from "src/common/config/dungeon/dungeonDetails";
+import { MonsterDetails } from "src/common/config/monster/monster";
 import { Inventory, InventoryItem } from "../inventory/inventory.entity";
+import { DungeonType } from "src/common/config/dungeon/dungeonType";
 
 //ERROR CODE: 4XXX
 @Injectable()
@@ -39,7 +40,7 @@ export class DungeonService {
         let result = new InventoryItem();
         result.type = item.type;
         result.quantity = this.randomInt(item.minQuantity, item.maxQuantity);
-        result.quality = this.randomInt(item.minQuality, item.maxQuality);
+        result.quality = item.quality;
         result.data = {};
         for (const key of item.data) {
             result.data[key[0]] = this.randomInt(key[1], key[2]);

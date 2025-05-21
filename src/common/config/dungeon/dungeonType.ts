@@ -1,5 +1,3 @@
-import { RungUMinhConfig } from "./dungeons/RungUMinh";
-
 export enum DungeonType {
     RungUMinh = 'RungUMinh', // Rừng U Minh
     RungCucPhuong = 'RungCucPhuong', // Rừng Cúc Phương
@@ -24,8 +22,4 @@ export enum DungeonType {
     HoTaVong = 'HoTaVong', // Hồ Tả Vọng
 
     DongHaiLongCung = 'DongHaiLongCung', // Đông Hải Long Cung
-}
-
-export const DungeonDetails = {
-    [DungeonType.RungUMinh]: RungUMinhConfig,
 }

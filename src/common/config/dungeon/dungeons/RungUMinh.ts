@@ -1,6 +1,6 @@
 import { Item } from "../../inventory/items";
-import { DungeonType } from "../dungeon";
-import { MonsterType } from "../monster";
+import { DungeonType } from "../dungeonType";
+import { MonsterType } from "../../monster/monster";
 
 export const RungUMinhConfig = {
     id: DungeonType.RungUMinh,
@@ -27,50 +27,19 @@ export const RungUMinhConfig = {
     ],
     items: [
         {
-            type: Item.DotPha_BichHaiLongLien,
+            type: Item.DotPha_CoMocNgungSuong,
             weight: 500,
 
             minQuantity: 1,
-            maxQuantity: 3,
+            maxQuantity: 1,
 
-            minQuality: 0,
-            maxQuality: 1,
-
-            data: [
-                ['hp', 100, 300],
-                ['thanthuc', 1, 3]
-            ]
-        },
-        {
-            type: Item.DotPha_LamNgocTuy,
-            weight: 500,
-
-            minQuantity: 1,
-            maxQuantity: 3,
-
-            minQuality: 0,
-            maxQuality: 1,
+            quality: 1,
 
             data: [
-                ['hp', 100, 300],
-                ['thanthuc', 1, 3]
+                ['hp', 400, 600],
+                ['thanthuc', 20, 30]
             ]
-        },
-        {
-            type: Item.DotPha_LamDuongThach,
-            weight: 500,
-
-            minQuantity: 1,
-            maxQuantity: 3,
-
-            minQuality: 0,
-            maxQuality: 1,
-
-            data: [
-                ['hp', 100, 300],
-                ['thanthuc', 1, 3]
-            ]
-        },
+        }
     ],
     resources: [
         {

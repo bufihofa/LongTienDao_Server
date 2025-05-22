@@ -13,19 +13,28 @@ export const DongPhongNhaConfig = {
     monsters: [
         {
             type: MonsterType.Ho,
-            weight: 500,
+            level: 0,
+            weight: 100,
         },
         {
             type: MonsterType.Soi,
-            weight: 400,
+            level: 0,
+            weight: 700,
+        },
+        {
+            type: MonsterType.Soi,
+            level: 1,
+            weight: 50,
         },
         {
             type: MonsterType.Lon,
-            weight: 200,
+            level: 0,
+            weight: 100,
         },
         {
             type: MonsterType.Tho,
-            weight: 600,
+            level: 0,
+            weight: 100,
         },
     ],
     items: [
@@ -55,7 +64,7 @@ export const DongPhongNhaConfig = {
             type: 'stone',
             
             minQuantity: 10,
-            maxQuantity: 30,
+            maxQuantity: 100,
         },
 
     ],

@@ -9,22 +9,26 @@ export const RungUMinhConfig = {
     
     monsters_spawn_rate: 0.5,
     items_drop_rate: 0.5,
-    
+
     monsters: [
         {
             type: MonsterType.Ho,
+            level: 0,
             weight: 100,
         },
         {
             type: MonsterType.Soi,
-            weight: 700,
+            level: 0,
+            weight: 100,
         },
         {
             type: MonsterType.Lon,
+            level: 0,
             weight: 100,
         },
         {
             type: MonsterType.Tho,
+            level: 0,
             weight: 100,
         },
     ],
@@ -39,8 +43,7 @@ export const RungUMinhConfig = {
             quality: 1,
 
             data: [
-                ['hp', 400, 600],
-                ['thanthuc', 20, 30]
+                ['hp', 800, 1200],
             ]
         }
     ],
@@ -49,7 +52,7 @@ export const RungUMinhConfig = {
             type: 'wood',
             
             minQuantity: 10,
-            maxQuantity: 30,
+            maxQuantity: 100,
         },
         {
             type: 'stone',

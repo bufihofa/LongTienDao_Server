@@ -19,10 +19,13 @@ export class InventoryService {
         u.inventory = newInventory;
     }
     async getInventory(u: User): Promise<any> {
+        // Get inventory
         const inventory = await this.inventoryRepository.findOne({ where: { user: { id: u.id } } });
         if (!inventory) {
             return { success: false, message: 'Inventory not found', errorCode: 3000 };
         }
+
+        // OK
         return {
             success: true,
             message: 'Inventory retrieved successfully',
@@ -30,11 +33,13 @@ export class InventoryService {
         };
     }
     async getInventoryWithDetails(u: User): Promise<any> {
+        // Get inventory
         const inventory = await this.inventoryRepository.findOne({ where: { user: { id: u.id } } });
         if (!inventory) {
             return { success: false, message: 'Inventory not found', errorCode: 3002 };
         }
         let result: any[] = [];
+        // Get items with details
         for(const item of inventory.items) {
             result.push({
                 id: item.id,
@@ -44,6 +49,8 @@ export class InventoryService {
                 details: ItemDetails[item.type] || [],
             });
         }
+
+        // OK
         return {
             success: true,
             message: 'Inventory retrieved successfully',
@@ -51,6 +58,7 @@ export class InventoryService {
         };
     }
     async addItem(u: User, item: InventoryItem): Promise<any> {
+        // Get inventory
         const inventory = await this.inventoryRepository.findOne({ where: { user: { id: u.id } } });
         if (!inventory) {
             return { success: false, message: 'Inventory not found', errorCode: 3001 };
@@ -58,7 +66,6 @@ export class InventoryService {
         if (!inventory.items) {
             inventory.items = [];
         }
-        console.log(inventory.items);
         // Check if item already exists
         const existingItem = inventory.items.find(i => i.type == item.type && i.quality == item.quality && JSON.stringify(i.data) == JSON.stringify(item.data));
         
@@ -69,7 +76,10 @@ export class InventoryService {
             inventory.items.push(item);
         }
 
+        // Save inventory
         await this.inventoryRepository.save(inventory);
+        
+        // OK
         return inventory;
     }
     

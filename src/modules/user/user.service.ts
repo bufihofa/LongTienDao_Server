@@ -21,14 +21,16 @@ export class UserService {
 
   async createSect(u: User, createSectDto: CreateSectDto): Promise<any> {
 
-
+    // Check if user exists
     const user = await this.userRepository.findOne({ where: { id: u.id } });
     if (!user) {
       return { success: false, message: 'User not found', errorCode: 2000 };
     }
+    // Check if user has sect
     if(user.sectName){
       return { success: false, message: 'Sect already exists', errorCode: 2001 };
     }
+    // Check if sect name is valid
     if(!createSectDto.sectName){
       return { success: false, message: 'Sect name is required', errorCode: 2002 };
     }
@@ -42,31 +44,35 @@ export class UserService {
     this.inventoryService.createInventory(user);
     this.dungeonService.createDungeon(user);
 
+    // Save user
     await this.userRepository.save(user);
-    console.log(user);
+
+    // OK
     return {
       success: true,
       message: 'Sect created successfully',
-      sectName: createSectDto.sectName,
+      user: user
     }
   }
 
   async getSect(u: User): Promise<any> {
-
+    
+    // Check if user exists
     const user = await this.userRepository.findOne({ where: { id: u.id } });
-
     if (!user) {
       return { success: false, message: 'User not found', errorCode: 2003 };
     }
+
+    // Check if user has sect
     if(!user.sectName){
       return { success: false, message: 'Sect not found', errorCode: 2004 };
     }
 
-    
+    // OK
     return {
       success: true,
       message: 'Sect found successfully',
-      user
+      user: user
     }
   }
   

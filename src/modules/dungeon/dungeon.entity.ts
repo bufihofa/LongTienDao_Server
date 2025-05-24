@@ -34,6 +34,6 @@ export class Dungeon {
     @Column('jsonb', { default: [] })
     itemRewards: InventoryItem[]; // Array of rewards for the dungeon
 
-    @Column('jsonb', { default: new ResourcesList() })
+    @Column('jsonb', { default: {} })
     resourcesRewards: ResourcesList; // Array of resources rewards for the dungeon
 }

@@ -6,7 +6,6 @@ import { Dungeon } from "./dungeon.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { DungeonDetails } from "src/common/config/dungeon/dungeonDetails";
-import { MonsterDetails } from "src/common/config/monster/monster";
 import { Inventory, InventoryItem } from "../inventory/inventory.entity";
 import { DungeonType } from "src/common/config/dungeon/dungeonType";
 

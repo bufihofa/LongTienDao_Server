@@ -1,6 +1,6 @@
 import { Item } from "../../inventory/items";
+import { MonsterType } from "../../monster/monsterType";
 import { DungeonType } from "../dungeonType";
-import { MonsterType } from "../../monster/monster";
 
 export const RungUMinhConfig = {
     id: DungeonType.RungUMinh,
@@ -15,6 +15,7 @@ export const RungUMinhConfig = {
             type: MonsterType.Ho,
             level: 0,
             weight: 100,
+            
         },
         {
             type: MonsterType.Soi,

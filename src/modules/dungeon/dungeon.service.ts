@@ -21,15 +21,8 @@ export class DungeonService {
         user.dungeon = newDungeon;
     }
     async getAllDungeon(user: User): Promise<any> {
-        
-       const itemconfig = DungeonDetails[DungeonType.RungUMinh];
-       const items = itemconfig.items;
-       console.log(items);
-       for (const item of items) {
-            console.log(item);
-            const drop = this.getRandomItem(item);
-            console.log(drop);
-       }
+       const config = DungeonDetails[DungeonType.RungUMinh];
+       console.log(config.spawnMonsters());
        
     }
     randomInt(min: number, max: number): number {

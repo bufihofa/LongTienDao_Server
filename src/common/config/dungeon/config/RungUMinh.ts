@@ -1,9 +1,9 @@
 import { Item } from "../../inventory/items";
 import { MonsterType } from "../../monster/monsterType";
-import { DungeonConfig } from "../dungeonDetails";
+import { DungeonDetailsConfig } from "../dungeonDetailsConfig";
 import { DungeonType } from "../dungeonType";
 
-export const RungUMinhConfig = new DungeonConfig(
+export const RungUMinhConfig = new DungeonDetailsConfig(
 {
     id: DungeonType.RungUMinh,
     name: 'Rừng U Minh',

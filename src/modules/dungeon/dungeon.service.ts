@@ -22,23 +22,11 @@ export class DungeonService {
     }
     async getAllDungeon(user: User): Promise<any> {
        const config = DungeonDetails[DungeonType.RungUMinh];
-       console.log(config.spawnMonsters());
+       console.log(config.generateItems());
+
        
     }
-    randomInt(min: number, max: number): number {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    getRandomItem(item: any): InventoryItem {
-        let result = new InventoryItem();
-        result.type = item.type;
-        result.quantity = this.randomInt(item.minQuantity, item.maxQuantity);
-        result.quality = item.quality;
-        result.data = {};
-        for (const key of item.data) {
-            result.data[key[0]] = this.randomInt(key[1], key[2]);
-        }
-        return result;
-    }
+    
     async startDungeon(user: User, startDungeonDto: StartDungeonDto): Promise<any> {
         // Tạo một phiên thám hiểm tàn tích mới
 

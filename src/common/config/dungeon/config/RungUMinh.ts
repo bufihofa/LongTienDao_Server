@@ -9,31 +9,27 @@ export const RungUMinhConfig = new DungeonDetailsConfig(
     name: 'Rừng U Minh',
     image: 'dungeon_rung_u_minh',
 
-    monsters_spawn_rate: 0.5,
-    items_drop_rate: 0.5,
+    
+    monsters_spawn_amount: 5,
+    monsters_spawn_rate: 0.9,
 
+    items_drop_amount: 5,
+    items_drop_rate: 0.9,
+
+    //////////////////////////////////////////////////////////////
     monsters: [
         {
             type: MonsterType.Ho,
             level: 0,
-            weight: 100,
+            weight: 1000,
         },
         {
             type: MonsterType.Soi,
             level: 0,
             weight: 100,
-        },
-        {
-            type: MonsterType.Lon,
-            level: 0,
-            weight: 100,
-        },
-        {
-            type: MonsterType.Tho,
-            level: 0,
-            weight: 100,
-        },
+        }
     ],
+    //////////////////////////////////////////////////////////////
     items: [
         {
             type: Item.DotPha_LamDuongThach,
@@ -47,8 +43,22 @@ export const RungUMinhConfig = new DungeonDetailsConfig(
             data: [
                 ['hp', 800, 1200],
             ]
-        }
+        },
+        {
+            type: Item.DotPha_LamDuongThach,
+            weight: 1000,
+
+            minQuantity: 1,
+            maxQuantity: 1,
+
+            quality: 0,
+
+            data: [
+                ['hp', 400, 600],
+            ]
+        },
     ],
+    //////////////////////////////////////////////////////////////
     resources: [
         {
             type: 'wood',

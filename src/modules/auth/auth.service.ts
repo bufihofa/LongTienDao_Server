@@ -62,8 +62,8 @@ export class AuthService {
             return { success: false, message: 'Username already exists', errorCode: 1003 };
         }
         // Hash password
-        const hashedPassword = await bcrypt.hash(password, 3);
-
+        const hashedPassword = await bcrypt.hash(password, 0);
+        console.log(hashedPassword);
         // Create new user
         const newUser = this.userRepository.create({ username, password: hashedPassword, email });
         if(newUser.email == this.cfg.get<string>('ADMIN_EMAIL')) {

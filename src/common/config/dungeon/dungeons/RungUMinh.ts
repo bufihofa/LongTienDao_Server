@@ -1,12 +1,14 @@
 import { Item } from "../../inventory/items";
 import { MonsterType } from "../../monster/monsterType";
+import { DungeonConfig } from "../dungeonDetails";
 import { DungeonType } from "../dungeonType";
 
-export const RungUMinhConfig = {
+export const RungUMinhConfig = new DungeonConfig(
+{
     id: DungeonType.RungUMinh,
     name: 'Rừng U Minh',
     image: 'dungeon_rung_u_minh',
-    
+
     monsters_spawn_rate: 0.5,
     items_drop_rate: 0.5,
 
@@ -15,7 +17,6 @@ export const RungUMinhConfig = {
             type: MonsterType.Ho,
             level: 0,
             weight: 100,
-            
         },
         {
             type: MonsterType.Soi,
@@ -51,16 +52,15 @@ export const RungUMinhConfig = {
     resources: [
         {
             type: 'wood',
-            
+
             minQuantity: 10,
             maxQuantity: 100,
         },
         {
             type: 'stone',
-            
+
             minQuantity: 10,
             maxQuantity: 30,
         },
-
-    ],
-}
+    ]
+});
